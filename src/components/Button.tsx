@@ -7,11 +7,11 @@ type ButtonProps = ComponentProps<typeof Link> & {
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-colors";
+    "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0.5";
   const styles =
     variant === "primary"
-      ? "bg-terracotta text-cream hover:bg-terracotta-dark"
-      : "border border-espresso/20 bg-transparent text-espresso hover:bg-espresso hover:text-cream";
+      ? "bg-accent text-canvas shadow-[0_5px_0_0_var(--accent-shadow),0_18px_36px_-14px_var(--accent)] hover:shadow-[0_7px_0_0_var(--accent-shadow),0_24px_44px_-14px_var(--accent)] active:shadow-[0_1px_0_0_var(--accent-shadow)]"
+      : "border border-fg/25 bg-fg/5 text-fg backdrop-blur-sm hover:border-fg hover:bg-fg hover:text-canvas";
 
   return <Link {...props} className={`${base} ${styles} ${className}`} />;
 }

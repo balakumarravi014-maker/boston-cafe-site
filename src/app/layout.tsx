@@ -8,6 +8,7 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({
@@ -16,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Beacon & Bean | Boston Coffee Shop",
+  title: "Drago's Corner Cup | Boston Coffee Shop",
   description:
-    "Beacon & Bean is a cozy coffee shop in Boston, MA serving locally roasted coffee, fresh baked pastries, and all-day breakfast & lunch.",
+    "Drago's Corner Cup is a cozy coffee shop in Boston, MA serving locally roasted coffee, fresh baked pastries, and all-day breakfast & lunch.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

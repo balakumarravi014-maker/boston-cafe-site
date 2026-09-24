@@ -19,9 +19,9 @@ export function ReservationForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-sage/30 bg-sage/10 p-6 text-espresso">
+      <div className="rounded-2xl border border-accent/30 bg-accent/10 p-6 text-fg">
         <p className="font-display text-lg font-semibold">Request received!</p>
-        <p className="mt-1 text-sm text-espresso/70">
+        <p className="mt-1 text-sm text-fg/70">
           We&apos;ll confirm your reservation by email or phone shortly. For same-day requests, please
           call us directly.
         </p>
@@ -33,7 +33,7 @@ export function ReservationForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="res-name" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-name" className="text-sm font-medium text-fg/85">
             Name
           </label>
           <input
@@ -41,11 +41,11 @@ export function ReservationForm() {
             name="name"
             type="text"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
         <div>
-          <label htmlFor="res-party" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-party" className="text-sm font-medium text-fg/85">
             Party Size
           </label>
           <input
@@ -55,14 +55,14 @@ export function ReservationForm() {
             min={1}
             max={20}
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="res-email" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-email" className="text-sm font-medium text-fg/85">
             Email
           </label>
           <input
@@ -70,11 +70,11 @@ export function ReservationForm() {
             name="email"
             type="email"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
         <div>
-          <label htmlFor="res-phone" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-phone" className="text-sm font-medium text-fg/85">
             Phone
           </label>
           <input
@@ -82,14 +82,14 @@ export function ReservationForm() {
             name="phone"
             type="tel"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="res-date" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-date" className="text-sm font-medium text-fg/85">
             Date
           </label>
           <input
@@ -97,11 +97,11 @@ export function ReservationForm() {
             name="date"
             type="date"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
         <div>
-          <label htmlFor="res-time" className="text-sm font-medium text-espresso">
+          <label htmlFor="res-time" className="text-sm font-medium text-fg/85">
             Time
           </label>
           <input
@@ -109,27 +109,27 @@ export function ReservationForm() {
             name="time"
             type="time"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="res-notes" className="text-sm font-medium text-espresso">
-          Special Requests <span className="text-espresso/40">(optional)</span>
+        <label htmlFor="res-notes" className="text-sm font-medium text-fg/85">
+          Special Requests <span className="text-fg/40">(optional)</span>
         </label>
         <textarea
           id="res-notes"
           name="notes"
           rows={4}
-          className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+          className="field"
         />
       </div>
 
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex items-center justify-center rounded-full bg-terracotta px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-terracotta-dark disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-canvas shadow-[0_5px_0_0_var(--accent-shadow)] transition-all hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_1px_0_0_var(--accent-shadow)] disabled:opacity-60"
       >
         {sending ? "Submitting…" : "Request Reservation"}
       </button>

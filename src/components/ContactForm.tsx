@@ -19,9 +19,9 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-sage/30 bg-sage/10 p-6 text-espresso">
+      <div className="rounded-2xl border border-accent/30 bg-accent/10 p-6 text-fg">
         <p className="font-display text-lg font-semibold">Thanks for reaching out!</p>
-        <p className="mt-1 text-sm text-espresso/70">
+        <p className="mt-1 text-sm text-fg/70">
           We&apos;ve received your message and will get back to you within one business day.
         </p>
       </div>
@@ -32,7 +32,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-sm font-medium text-espresso">
+          <label htmlFor="name" className="text-sm font-medium text-fg/85">
             Name
           </label>
           <input
@@ -40,11 +40,11 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
         <div>
-          <label htmlFor="email" className="text-sm font-medium text-espresso">
+          <label htmlFor="email" className="text-sm font-medium text-fg/85">
             Email
           </label>
           <input
@@ -52,12 +52,12 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+            className="field"
           />
         </div>
       </div>
       <div>
-        <label htmlFor="message" className="text-sm font-medium text-espresso">
+        <label htmlFor="message" className="text-sm font-medium text-fg/85">
           Message
         </label>
         <textarea
@@ -65,13 +65,13 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="mt-1.5 w-full rounded-lg border border-espresso/20 bg-cream px-3.5 py-2.5 text-sm text-espresso outline-none focus:border-terracotta"
+          className="field"
         />
       </div>
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex items-center justify-center rounded-full bg-terracotta px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-terracotta-dark disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-canvas shadow-[0_5px_0_0_var(--accent-shadow)] transition-all hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_1px_0_0_var(--accent-shadow)] disabled:opacity-60"
       >
         {sending ? "Sending…" : "Send Message"}
       </button>

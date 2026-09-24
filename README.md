@@ -1,10 +1,11 @@
-# Beacon & Bean — Cafe Website
+# Drago's Corner Cup — Cafe Website
 
-A Next.js marketing site built for a Boston coffee shop client: Home, Menu, About, Gallery,
-Reservations, and Contact pages, with a warm coffee-themed design and interactive 3D tilt
-cards on photos.
+🌐 **Live site: [boston-cafe-site.vercel.app](https://boston-cafe-site.vercel.app)**
 
-**Live site:** https://boston-cafe-site.vercel.app
+A Next.js marketing site for Drago's Corner Cup, a Boston coffee shop: Home, Menu, About, Gallery,
+Reservations, and Contact pages. It uses a fresh sage & cream color theme, lots of photography,
+and 3D animation: a pointer-tracking layered hero, a rotating photo carousel, flip cards,
+a tilted scrolling photo strip, 3D scroll reveals, and tilt-on-hover photo cards.
 
 ## Tech stack
 
@@ -71,7 +72,8 @@ launch, wire them to a real backend — e.g. an email service like
 src/
   app/                 Pages (App Router): /, /menu, /about, /gallery, /reservations, /contact
   components/          Header, Footer, forms, PhotoImage, Button, icons
-  components/ui/       Tilt-card 3D hover effect (from the 21st.dev registry)
+  components/ui/       3D effects: tilt card, hero scene, image ring, marquee, flip card,
+                       scroll reveal, and the photo page header
   lib/content.ts        All editable business content and image URLs
   lib/utils.ts          Small shared helpers
 ```

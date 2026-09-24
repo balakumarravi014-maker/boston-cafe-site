@@ -12,9 +12,38 @@ export const storyImage = unsplash("1447933601403-0c6688de566e");
 export const ctaImage = unsplash("1572231086568-6984943e6629");
 export const aboutHeroImage = unsplash("1572982270699-473dfa34d7e7");
 export const reservationsImage = unsplash("1628613526162-a80aae5cc63d");
+export const menuHeroImage = unsplash("1497935586351-b67a49e012bf");
+export const galleryHeroImage = unsplash("1453614512568-c4024d13c247");
+export const contactHeroImage = unsplash("1559925393-8be0ec4767c8");
+export const storefrontImage = unsplash("1501339847302-ac426a4a7cbb");
+
+// Floating layers in the home page 3D hero scene.
+export const heroLayers = {
+  latte: unsplash("1541167760496-1628856ab772", 600),
+  croissant: unsplash("1555507036-ab1f4038808a", 600),
+  pour: unsplash("1442512595331-e89e73853f31", 600),
+};
+
+// Supporting shots for the story section.
+export const storyDetailImages = [
+  unsplash("1511920170033-f8396924c348", 800),
+  unsplash("1495474472287-4d71bcdd2085", 800),
+];
+
+// Strip of images that scrolls across the home page.
+export const marqueeImages = [
+  { label: "Heart latte", image: unsplash("1506372023823-741c83b836fe", 600) },
+  { label: "Iced latte", image: unsplash("1461023058943-07fcbe16d735", 600) },
+  { label: "Twin cappuccinos", image: unsplash("1507133750040-4a8f57021571", 600) },
+  { label: "Espresso", image: unsplash("1485808191679-5f86510681a2", 600) },
+  { label: "Tasting flight", image: unsplash("1498804103079-a6351b050096", 600) },
+  { label: "French press", image: unsplash("1519082274554-1ca37fb8abb7", 600) },
+  { label: "Black coffee", image: unsplash("1514432324607-a09d9b4aefdd", 600) },
+  { label: "Iced coffee", image: unsplash("1517701550927-30cf4ba1dba5", 600) },
+];
 
 export const business = {
-  name: "Beacon & Bean",
+  name: "Drago's Corner Cup",
   tagline: "Boston's cozy corner for coffee, pastries & community.",
   address: {
     line1: "128 Newbury Street",
@@ -23,7 +52,7 @@ export const business = {
   },
   phone: "(617) 555-0142",
   phoneHref: "tel:+16175550142",
-  email: "hello@beaconandbean.com",
+  email: "hello@dragoscornercup.com",
   hours: [
     { days: "Monday – Friday", time: "7:00 AM – 6:00 PM" },
     { days: "Saturday – Sunday", time: "8:00 AM – 5:00 PM" },
@@ -45,7 +74,7 @@ export const nav = [
 
 export const featuredMenu = [
   {
-    name: "Beacon Latte",
+    name: "Corner Cup Latte",
     description: "Double espresso, steamed whole milk, house vanilla bean syrup.",
     price: "$5.25",
     image: unsplash("1593443320739-77f74939d0da"),
@@ -73,17 +102,19 @@ export const featuredMenu = [
 export const menu = [
   {
     category: "Coffee & Espresso",
+    image: unsplash("1509042239860-f550ce710b93", 1000),
     items: [
       { name: "Drip Coffee", description: "Locally roasted, brewed fresh all day.", price: "$3.25" },
       { name: "Americano", description: "Double espresso, hot water.", price: "$3.75" },
       { name: "Cappuccino", description: "Espresso, steamed milk, deep foam.", price: "$4.50" },
-      { name: "Beacon Latte", description: "Espresso, steamed milk, house vanilla bean syrup.", price: "$5.25" },
+      { name: "Corner Cup Latte", description: "Espresso, steamed milk, house vanilla bean syrup.", price: "$5.25" },
       { name: "Mocha", description: "Espresso, steamed milk, Belgian dark chocolate.", price: "$5.50" },
       { name: "Harborside Cold Brew", description: "18-hour steeped, served over ice.", price: "$4.75" },
     ],
   },
   {
     category: "Tea & Other Drinks",
+    image: unsplash("1461023058943-07fcbe16d735", 1000),
     items: [
       { name: "Loose Leaf Tea", description: "Earl grey, chamomile, or jasmine green.", price: "$3.50" },
       { name: "Chai Latte", description: "House-spiced chai, steamed milk.", price: "$4.75" },
@@ -93,6 +124,7 @@ export const menu = [
   },
   {
     category: "Pastries & Bakery",
+    image: unsplash("1555507036-ab1f4038808a", 1000),
     items: [
       { name: "Almond Croissant", description: "Butter croissant, almond cream filling.", price: "$4.50" },
       { name: "Blueberry Scone", description: "Baked fresh each morning.", price: "$3.75" },
@@ -102,6 +134,7 @@ export const menu = [
   },
   {
     category: "Breakfast",
+    image: unsplash("1687276287139-88f7333c8ca4", 1000),
     items: [
       { name: "Avocado Toast", description: "Sourdough, smashed avocado, chili flake, soft egg.", price: "$9.50" },
       { name: "Classic Breakfast Sandwich", description: "Egg, cheddar, choice of bacon or sausage.", price: "$7.95" },
@@ -111,6 +144,7 @@ export const menu = [
   },
   {
     category: "Lunch & Sandwiches",
+    image: unsplash("1447078806655-40579c2520d6", 1000),
     items: [
       { name: "Turkey & Brie Panini", description: "Roasted turkey, brie, cranberry, arugula.", price: "$10.50" },
       { name: "Caprese Panini", description: "Fresh mozzarella, tomato, basil pesto.", price: "$9.95" },
@@ -123,19 +157,45 @@ export const menu = [
 export const values = [
   {
     title: "Locally Roasted",
+    image: unsplash("1511920170033-f8396924c348", 800),
     description: "Beans roasted weekly by small-batch Massachusetts roasters.",
   },
   {
     title: "Baked Fresh Daily",
+    image: unsplash("1534432182912-63863115e106", 800),
     description: "Our pastry case is restocked every morning before sunrise.",
   },
   {
     title: "Community First",
+    image: unsplash("1554118811-1e0d58224f24", 800),
     description: "Free wifi, cozy seating, and a home for local artists & events.",
   },
   {
     title: "Sustainably Minded",
+    image: unsplash("1497935586351-b67a49e012bf", 800),
     description: "Compostable packaging and fair-trade sourcing wherever possible.",
+  },
+];
+
+// The story behind the name, shown word by word on the About page.
+export const nameMeaning = [
+  {
+    word: "Drago",
+    meaning:
+      "Our founder's nickname. Drago started this place with a single espresso cart and one promise: pour every cup like it's for a friend. Putting the name on the door keeps that promise personal.",
+    image: unsplash("1621912512450-6d02139074c7", 800),
+  },
+  {
+    word: "Corner",
+    meaning:
+      "The cozy corner of the neighborhood everyone needs: a window seat to read in, a table to meet at, a place where the barista already knows your order.",
+    image: unsplash("1628613526162-a80aae5cc63d", 800),
+  },
+  {
+    word: "Cup",
+    meaning:
+      "The heart of it all. Small-batch beans, roasted locally and brewed by hand, one carefully made cup at a time.",
+    image: unsplash("1541167760496-1628856ab772", 800),
   },
 ];
 
@@ -169,4 +229,12 @@ export const galleryImages = [
   { label: "Reading corner", image: unsplash("1628613526162-a80aae5cc63d") },
   { label: "Morning bake", image: unsplash("1705972018470-a89eda1c6ce4") },
   { label: "Community table", image: unsplash("1542181961-9590d0c79dab") },
+  { label: "Pour over", image: unsplash("1442512595331-e89e73853f31") },
+  { label: "Brick & light", image: unsplash("1463797221720-6b07e6426c24") },
+  { label: "Heart latte", image: unsplash("1506372023823-741c83b836fe") },
+  { label: "Loft seating", image: unsplash("1521017432531-fbd92d768814") },
+  { label: "Iced latte", image: unsplash("1461023058943-07fcbe16d735") },
+  { label: "Tasting flight", image: unsplash("1498804103079-a6351b050096") },
+  { label: "Front counter", image: unsplash("1453614512568-c4024d13c247") },
+  { label: "Patio", image: unsplash("1559925393-8be0ec4767c8") },
 ];

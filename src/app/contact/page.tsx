@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
-import { business } from "@/lib/content";
+import { PageHero } from "@/components/ui/page-hero";
+import { Reveal } from "@/components/ui/reveal";
+import { TiltCard } from "@/components/ui/tilt-card";
+import { business, contactHeroImage } from "@/lib/content";
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Contact | Beacon & Bean",
-  description: "Get in touch with Beacon & Bean, or find our hours and directions in Boston, MA.",
+  title: "Contact | Drago's Corner Cup",
+  description: "Get in touch with Drago's Corner Cup, or find our hours and directions in Boston, MA.",
 };
 
 export default function ContactPage() {
@@ -13,78 +16,98 @@ export default function ContactPage() {
     business.address.mapQuery
   )}&output=embed`;
 
+  const details = [
+    {
+      Icon: MapPinIcon,
+      title: "Address",
+      body: (
+        <>
+          {business.address.line1}
+          <br />
+          {business.address.line2}
+        </>
+      ),
+    },
+    {
+      Icon: PhoneIcon,
+      title: "Phone",
+      body: (
+        <a href={business.phoneHref} className="hover:text-accent">
+          {business.phone}
+        </a>
+      ),
+    },
+    {
+      Icon: MailIcon,
+      title: "Email",
+      body: (
+        <a href={`mailto:${business.email}`} className="break-all hover:text-accent">
+          {business.email}
+        </a>
+      ),
+    },
+    {
+      Icon: ClockIcon,
+      title: "Hours",
+      body: business.hours.map((h) => (
+        <span key={h.days} className="block">
+          {h.days}: {h.time}
+        </span>
+      )),
+    },
+  ];
+
   return (
-    <div className="container-page py-16 lg:py-20">
-      <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">
-        Contact
-      </p>
-      <h1 className="mt-3 font-display text-4xl font-semibold text-espresso sm:text-5xl">
-        We&apos;d love to hear from you
-      </h1>
+    <div>
+      <PageHero
+        eyebrow="Contact"
+        image={contactHeroImage}
+        title={
+          <>
+            We&apos;d love to <em className="font-medium text-accent">hear</em> from you
+          </>
+        }
+      />
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-2">
-        <div className="space-y-8">
-          <div>
-            <h2 className="font-display text-xl font-semibold text-espresso">Send a message</h2>
-            <div className="mt-4">
-              <ContactForm />
-            </div>
-          </div>
-
-          <div className="grid gap-4 border-t border-espresso/10 pt-8 sm:grid-cols-2">
-            <div className="flex gap-3">
-              <MapPinIcon className="h-5 w-5 shrink-0 text-terracotta" />
-              <div>
-                <p className="font-medium text-espresso">Address</p>
-                <p className="text-sm text-espresso/60">
-                  {business.address.line1}
-                  <br />
-                  {business.address.line2}
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <PhoneIcon className="h-5 w-5 shrink-0 text-terracotta" />
-              <div>
-                <p className="font-medium text-espresso">Phone</p>
-                <a href={business.phoneHref} className="text-sm text-espresso/60 hover:text-terracotta">
-                  {business.phone}
-                </a>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <MailIcon className="h-5 w-5 shrink-0 text-terracotta" />
-              <div>
-                <p className="font-medium text-espresso">Email</p>
-                <a href={`mailto:${business.email}`} className="text-sm text-espresso/60 hover:text-terracotta">
-                  {business.email}
-                </a>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <ClockIcon className="h-5 w-5 shrink-0 text-terracotta" />
-              <div>
-                <p className="font-medium text-espresso">Hours</p>
-                {business.hours.map((h) => (
-                  <p key={h.days} className="text-sm text-espresso/60">
-                    {h.days}: {h.time}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
+      <section className="container-page py-20 lg:py-28">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {details.map(({ Icon, title, body }, i) => (
+            <Reveal key={title} delay={i * 100}>
+              <TiltCard tiltLimit={12} className="h-full rounded-3xl">
+                <div className="glass h-full rounded-3xl p-6">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-canvas">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <p className="mt-5 font-display text-lg font-semibold text-fg">{title}</p>
+                  <p className="mt-1 text-sm text-fg/65">{body}</p>
+                </div>
+              </TiltCard>
+            </Reveal>
+          ))}
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-espresso/10">
-          <iframe
-            title="Beacon & Bean location map"
-            src={mapSrc}
-            className="h-full min-h-[420px] w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div className="mt-14 grid gap-10 lg:grid-cols-2">
+          <Reveal>
+            <div className="glass rounded-[2rem] p-6 sm:p-10">
+              <h2 className="font-display text-3xl font-semibold text-fg">Send a message</h2>
+              <div className="mt-8">
+                <ContactForm />
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={150} className="h-full">
+            <div className="h-full min-h-[420px] overflow-hidden rounded-[2rem] border border-fg/10 shadow-2xl shadow-black/25">
+              <iframe
+                title="Drago's Corner Cup location map"
+                src={mapSrc}
+                className="h-full min-h-[420px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Reveal>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

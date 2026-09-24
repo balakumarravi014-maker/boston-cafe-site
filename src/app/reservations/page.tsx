@@ -1,41 +1,70 @@
 import type { Metadata } from "next";
 import { PhotoImage } from "@/components/PhotoImage";
 import { ReservationForm } from "@/components/ReservationForm";
-import { business, reservationsImage } from "@/lib/content";
+import { PageHero } from "@/components/ui/page-hero";
+import { Reveal } from "@/components/ui/reveal";
+import { TiltCard } from "@/components/ui/tilt-card";
+import { business, galleryImages, reservationsImage } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Reservations | Beacon & Bean",
-  description: "Reserve a table at Beacon & Bean, a cozy coffee shop in Boston, MA.",
+  title: "Reservations | Drago's Corner Cup",
+  description: "Reserve a table at Drago's Corner Cup, a cozy coffee shop in Boston, MA.",
 };
+
+const spaces = [galleryImages[3], galleryImages[7], galleryImages[11]];
 
 export default function ReservationsPage() {
   return (
-    <div className="container-page py-16 lg:py-20">
-      <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">
-        Reservations
-      </p>
-      <h1 className="mt-3 font-display text-4xl font-semibold text-espresso sm:text-5xl">
-        Reserve a table
-      </h1>
-      <p className="mt-4 max-w-2xl text-espresso/70">
-        Planning to bring a group, host a meeting, or celebrate something special? Let us know and
-        we&apos;ll set a table aside for you. For parties larger than 10, please call us directly at{" "}
-        <a href={business.phoneHref} className="font-medium text-terracotta">
+    <div>
+      <PageHero
+        eyebrow="Reservations"
+        image={reservationsImage}
+        title={
+          <>
+            Save a <em className="font-medium text-accent">seat</em> by the window
+          </>
+        }
+      >
+        Bringing a group, hosting a meeting, or celebrating something special? Let us know and we&apos;ll
+        set a table aside. For parties larger than 10, call{" "}
+        <a href={business.phoneHref} className="font-medium text-accent underline-offset-4 hover:underline">
           {business.phone}
         </a>
         .
-      </p>
+      </PageHero>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-2">
-        <div className="rounded-2xl border border-espresso/10 p-6 sm:p-8">
-          <ReservationForm />
+      <section className="container-page grid gap-12 py-20 lg:grid-cols-[7fr_5fr] lg:py-28">
+        <Reveal>
+          <div className="glass rounded-[2rem] p-6 shadow-2xl shadow-black/25 sm:p-10">
+            <h2 className="font-display text-3xl font-semibold text-fg">Request a table</h2>
+            <p className="mt-2 text-sm text-fg/60">We confirm every request by email or phone.</p>
+            <div className="mt-8">
+              <ReservationForm />
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="space-y-6">
+          <Reveal delay={120}>
+            <p className="eyebrow">Our spaces</p>
+          </Reveal>
+          {spaces.map((space, i) => (
+            <Reveal key={space.label} delay={200 + i * 120}>
+              <TiltCard tiltLimit={10} className="on-dark group aspect-[16/9] w-full rounded-3xl border border-fg/10 shadow-xl shadow-black/25">
+                <PhotoImage
+                  src={space.image}
+                  alt={space.label}
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="h-full w-full rounded-none"
+                  imgClassName="transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-canvas/85 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-5 font-display text-xl font-semibold text-fg">{space.label}</p>
+              </TiltCard>
+            </Reveal>
+          ))}
         </div>
-        <PhotoImage
-          src={reservationsImage}
-          alt="Cozy seating area at Beacon & Bean"
-          className="aspect-[4/3] w-full lg:aspect-auto lg:h-full"
-        />
-      </div>
+      </section>
     </div>
   );
 }
