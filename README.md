@@ -7,6 +7,13 @@ Reservations, and Contact pages. It uses a fresh sage & cream color theme, lots 
 and 3D animation: a pointer-tracking layered hero, a rotating photo carousel, flip cards,
 a tilted scrolling photo strip, 3D scroll reveals, and tilt-on-hover photo cards.
 
+## Website
+
+| | |
+| --- | --- |
+| **Live site** | https://boston-cafe-site.vercel.app |
+| **Source code** | https://github.com/balakumarravi014-maker/boston-cafe-site |
+
 ## Tech stack
 
 - [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
